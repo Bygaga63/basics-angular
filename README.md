@@ -1,27 +1,39 @@
-# AngularBasics
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+Вставка значение переменной
+```
+{{ value }}
+```
 
-## Development server
+Однонаправленный бандинг из ts в html
+```
+<img [src] = 'imgSrc'/>
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Однонаправленный бандинг из html в ts
+```
+<input
+    type="text"
+    (input)="onInput($event)"      //$event - событие, которое можно получить
+    (blur)="onBlur(myInput.value)" //получить значение инпута
+    #myInput                       //типо ref 
+/>
+```
 
-## Code scaffolding
+Если выражение в одну строчку, то можно сразу внутри html менять значение переменной
+```
+<button (click)="backgroundToggle = !backgroundToggle"></button>
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Двунаправленный databinding, т.е. не надо создавать функцию onChange
+```
+<input [(ngModel)]="title"
+       type="text"
+>
+```
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Директивы:
+[(ngModel)]  =  для двунаправленного input databinding
+[ngStyle] =     для inline стилей
+[ngClass] =     для классов стилей
