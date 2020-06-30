@@ -31,9 +31,25 @@
 >
 ```
 
+Структурные директивы:
+```
+*ngIf        =    что-то типо show && <Component/>
+```
 
+Пример if else: 
+```
+<p *ngIf="toggle; else blueP" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus,
+  repudiandae.</p>
+
+<ng-template #blueP>
+  <p class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, incidunt?</p>
+</ng-template>
+```
 
 Директивы:
-[(ngModel)]  =  для двунаправленного input databinding
-[ngStyle] =     для inline стилей
-[ngClass] =     для классов стилей
+```
+[(ngModel)]  =     для двунаправленного input databinding
+[ngStyle]    =     для inline стилей
+[ngClass]    =     для классов стилей
+```
+
