@@ -45,6 +45,14 @@
   <p class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, incidunt?</p>
 </ng-template>
 ```
+Пример switch case: 
+```
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true" class="red">Lorem ipsum.</p>
+  <p *ngSwitchCase="false" class="blue">Lorem ipsum.</p>
+  <p *ngSwitchDefault >Lorem ipsum.</p>
+</div>
+```
 
 Директивы:
 ```
