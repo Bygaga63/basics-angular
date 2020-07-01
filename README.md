@@ -34,6 +34,8 @@
 Структурные директивы:
 ```
 *ngIf        =    что-то типо show && <Component/>
+*ngSwitch    =    switch case
+*ngFor       =    для итераций
 ```
 
 Пример if else: 
