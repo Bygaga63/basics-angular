@@ -1,26 +1,23 @@
-<h1>Hello Angular World!</h1>
+<div class="container">
+  <h1>Angular Components</h1>
 
 
-<ul>
-  <li *ngFor="let n of arr; let idx = index">
-    {{idx + 1}}<strong>{{n}}</strong>
-  </li>
-</ul>
+  <app-post-form
+    (createdPost)="updatePosts($event)"
+  ></app-post-form>
 
+  <hr>
 
-<ul>
-  <li *ngFor="let post of obj">
-    <p>{{post.title}} <b>{{post.author}}</b></p>
-    <ul>
-      <li *ngFor="let comment of post.comments">
-        <div>
-          <small>
-            {{comment.name}}
-          </small>
-          <p>{{comment.text}}</p>
-        </div>
-      </li>
+  <app-post
+    *ngFor="let p of posts"
+    [post]="p"
+  >
+    <small *ngIf="p.text.length > 10; else short">Пост длинный</small>
 
-    </ul>
-  </li>
-</ul>
+    <ng-template #short>
+      <small>
+        Пост короткий
+      </small>
+    </ng-template>
+  </app-post>
+</div>

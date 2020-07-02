@@ -63,3 +63,37 @@
 [ngClass]    =     для классов стилей
 ```
 
+как передавать children. 
+```
+  <app-post
+    *ngFor="let p of posts"
+    [post]="p"
+  >
+    //Нужно между открывающимся и закрывающимся тегом что-то засунуть
+    <small *ngIf="p.text.length > 10; else short">Пост длинный</small>
+
+    <ng-template #short>
+      <small>
+        Пост короткий
+      </small>
+    </ng-template>
+  </app-post>
+
+
+// post-component получить это через *ng-content*
+  <ng-content></ng-content>
+```
+
+Как передать какой-то результат родителю:
+```
+  //в ребенко создать eventEmmiter
+  @Output() createdPost: EventEmitter<Post> = new EventEmitter();
+   
+  передать значение с помощью функции emit
+  this.createdPost.emit(post);
+
+  //в родительском компоненте вызвать передать параметры с помощью $event
+  <app-post-form
+    (createdPost)="updatePosts($event)"
+  ></app-post-form>
+```
